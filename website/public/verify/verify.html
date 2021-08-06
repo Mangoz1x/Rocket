@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Import Global Headers / Headers for all files -->
+    {{xjs{--plaintext--} globalHeader xjs}}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/publicStyles.css">
+
+    <title>Verify</title>
+</head>
+<body>
+    {{xjs {--IF--} {++loginUser++} {--find--} {++redirectLocations++}
+        <script>
+            window.location = "{[default]}";
+        </script>
+    xjs}}
+    <div class="template-container bg-dark">
+        <div class="centerContent fd-col">
+            {{xjs {--IF--}{++userVerified++}
+            {--find--}{++user++}
+            <h1 class="fc-eee fs-50">Your email was successfully verified</h1>
+            <p class="mt-4 fc-dark-light fs-20 text-align-center">You will be redirected shortly</h2>
+                xjs}}
+                {{xjs {--IF--}{++!userVerified++}
+                {--find--}{++user++}
+            <h1 class="fc-eee fs-50 text-align-center">Email Verification</h1>
+            <p class="fc-dark-light mt-4 fs-20 text-align-center">
+                Please check your email for further<br />
+                instructions on how to verify your email. <br />
+            </p>
+
+            <a class="mt-4 fc-dark-light btn-primary" id="popupResendLink">Resend Verification</a>
+
+            <div id="resetEmailPopup" class="centerContent fill-space-full template-container bg-dark pf-top-0" style="display: none;">
+                <div class="verify-MiddleDarkContent pos-rel">
+                    <form action="" method="POST" class="centerContent fd-col">
+                        <div class="centerContent fd-col">
+                            <label for="rocketVerEmail" class="text-align-center fs-20 fc-dark-light">Email</label><br />
+                            <input type="email" value="" name="rocketEmailResetEmail" id="rocketVerEmail"
+                                placeholder="rocketdev@rocketmail.com" class="rocketdev-input-email"><br />
+                            <input type="submit" value="Send" name="resetEmailRocket" class="rocketdev-input-submit">
+                        </div>
+                    </form>
+                </div>
+                <div class="rocket-verify-close-btn">
+                    <p id="closePopoutResendLink" class="fs-20 fc-eee">X</p>
+                </div>
+            </div>
+            xjs}}
+
+            <p class="fc-eee fs-20 mt-4">{{xjs mailer xjs}}</p>
+            <p class="text-alert fs-20 mt-4">{{xjs {--each--} {++mailerError++} {[i]} <br> xjs}}</p>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    let popupBtn = document.getElementById("popupResendLink");
+    let popupBtnClose = document.getElementById("closePopoutResendLink");
+
+    popupBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        let resetEmailContainer = document.getElementById("resetEmailPopup");
+
+        if (resetEmailContainer.style.display == "none") {
+            resetEmailContainer.style.display = "flex";
+        } else {
+            resetEmailContainer.style.display = "none";
+        }
+    });
+
+    popupBtnClose.addEventListener("click", () => {
+        let resetEmailContainer = document.getElementById("resetEmailPopup");
+
+        if (resetEmailContainer.style.display == "none") {
+            resetEmailContainer.style.display = "flex";
+        } else {
+            resetEmailContainer.style.display = "none";
+        }
+    });
+</script>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Button Styles */
+    .btn-primary {
+        cursor: pointer !important;
+    }
+
+    .rocket-verify-close-btn {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+    }
+
+    .rocketdev-input-submit {
+        padding: 10px 5px !important;
+        border: 2px solid #444;
+        border-radius: 3px;
+        width: 82.6%;
+        outline: none;
+        transition: 0.3s;
+        background-color: #111;
+        color: #eee;
+    }
+
+    .rocketdev-input-submit:hover {
+        transition: 0.3s;
+        border: 2px solid #555;
+    }
+
+    .rocketdev-input-email {
+        padding: 10px 5px;
+        border: 2px solid #222;
+        border-radius: 3px;
+        width: 80%;
+        outline: none;
+        background-color: #222;
+        color: #eee;
+    }
+
+    .verify-MiddleDarkContent {
+        width: 40%;
+        height: 30%;
+        background-color: #111;
+        border-radius: 2px;
+        min-width: 320px;
+    }
+
+    body h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        margin: 0;
+    }
+
+    /* Public classes / shared classes */
+
+    /* Center Content Styles */
+
+    .centerContent {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .centerContentX {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Center Content Styles End */
+    .fd-col {
+        flex-direction: column;
+    }
+
+    .p-4 {
+        padding: 25px;
+    }
+
+    .bg-dark {
+        background-color: #222;
+    }
+
+    .mt-4 {
+        margin-top: 25px;
+    }
+
+    .mt-2 {
+        margin-top: 12.5px;
+    }
+
+    /* Font size */
+    .fs-70 {
+        font-size: 70px;
+    }
+
+    .fs-50 {
+        font-size: 50px;
+    }
+
+    .fs-20 {
+        font-size: 20px;
+    }
+
+    /* Font color */
+    .fc-light-blue {
+        color: lightblue;
+    }
+
+    .fc-dark-light {
+        color: rgb(180, 180, 180);
+    }
+
+    .fc-eee {
+        color: #eee;
+    }
+
+    .fc-light {
+        color: white;
+    }
+
+    .text-alert {
+        color: red;
+    }
+
+    /* Align text to center */
+    .text-align-center {
+        text-align: center;
+    }
+
+    .font-bold {
+        font-weight: 900;
+    }
+
+    /* template container */
+
+    .template-container {
+        width: 100%;
+        height: 100vh;
+    }
+
+    /* Flex content */
+    .d-flex {
+        display: flex;
+    }
+
+    .jc-center {
+        justify-content: center;
+    }
+
+    .jc-flex-end {
+        justify-content: flex-end;
+    }
+
+    .jc-flex-start {
+        justify-content: flex-start;
+    }
+
+    .ai-flex-end {
+        align-items: flex-start;
+    }
+
+    .ai-center {
+        align-items: center;
+    }
+
+    .fd-row {
+        flex-direction: row;
+    }
+
+    /* Positioning */
+    .pos-ab {
+        position: absolute;
+    }
+
+    .pos-rel {
+        position: relative;
+    }
+
+    .pf-top-0 {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .btn-primary {
+        background-color: #111;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        outline: none;
+        transition: 0.3s;
+    }
+
+    .btn-primary:hover {
+        transition: 0.3s;
+        background-color: rgb(26, 26, 26);
+    }
+
+    /* Fill white space */
+    .fill-space-full {
+        width: 100%;
+        height: 100%;
+    }
+</style>
