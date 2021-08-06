@@ -1,0 +1,22 @@
+[
+    [
+        "text",
+        "html",
+        "css",
+        "json",
+        "txt",
+        "py",
+        "js",
+	    "php"
+    ],
+    [
+        "image",
+        "svg",
+        "png",
+        "jpeg"
+    ],
+    [
+        "video",
+        "mp4"
+    ]
+]

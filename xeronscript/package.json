@@ -1,0 +1,11 @@
+{
+  "name": "xeronscript",
+  "version": "1.0.0",
+  "description": "templating made easy with injecting variables directly",
+  "main": "xeronScript.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Haydan Dean Fisher",
+  "license": "ISC"
+}
