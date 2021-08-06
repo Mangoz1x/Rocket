@@ -1,0 +1,56 @@
+<script src="/js/logout.js" defer="true"></script>
+<script src="/js/navbar.js" defer="true"></script>
+
+<div class="nav-bar">
+    <div class="d-flex nav-bar-max-content jc-flex-start">
+        <a href="/" class="cursor-pointer">Home</a>  
+
+        {{xjs
+            {--IF--} {++userLogged++}
+            {--find--} {++test++}
+                <a href="/profile" class="cursor-pointer nav-bar-element">Profile</a>
+                <form action="" method="POST" id="logoutForm">
+                    <input type="hidden" name="logout" value="true">
+                    <a id="logoutFormSubmit" class="cursor-pointer nav-bar-element">Logout</a>
+                </form>
+        xjs}}
+        {{xjs
+            {--IF--} {++!userLogged++}
+            {--find--} {++test++}
+                <a href="/login" class="cursor-pointer nav-bar-element">Login</a>            
+                <a href="/signup" class="cursor-pointer nav-bar-element">Signup</a>
+        xjs}}
+        <a id="responsiveNavBarShow" class="nav-bar-responsive-btn cursor-pointer nav-bar-element-bars">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </a>
+    </div>
+</div>
+<div class="nav-bar-responsiveNavBar" id="responsiveNavArea" style="display: none;">
+    <a id="responsiveNavBarHide" class="fc-eee nav-bar-responsive-btn cursor-pointer close-btn-nav-bar">
+        <i class="fa fa-times" aria-hidden="true"></i>
+    </a>
+    <div class="responsive-btn-container">
+        <div class="responsive-btn-styles-outer-container">
+            <a href="/" class="cursor-pointer responsive-nav-bar-element">Home</a>  
+        </div>
+
+        {{xjs
+            {--IF--} {++userLogged++}
+            {--find--} {++test++}
+                <form action="" method="POST" id="logoutFormResponsive">
+                    <input type="hidden" name="logout" value="true">
+                    <a id="logoutFormSubmitResponsive" class="cursor-pointer responsive-nav-bar-element">Logout</a>
+                </form>
+        xjs}}
+        {{xjs
+            {--IF--} {++!userLogged++}
+            {--find--} {++test++}
+            <div class="responsive-btn-styles-outer-container">
+                <a href="/login" class="cursor-pointer responsive-nav-bar-element">Login</a>
+            </div>            
+            <div class="responsive-btn-styles-outer-container">
+                <a href="/signup" class="cursor-pointer responsive-nav-bar-element">Signup</a>
+            </div>
+        xjs}}
+    </div>  
+</div>

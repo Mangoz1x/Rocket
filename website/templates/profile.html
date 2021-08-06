@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{xjs{--plaintext--} globalHeader xjs}}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- IMPORT STYLES -->
+    <link rel="stylesheet" href="/css/publicStyles.css">
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/nav-bar.css">
+    <link rel="stylesheet" href="/librarys/fontawesome/fontawesome-free-5.15.3-web/css/all.css">
+
+    <!-- IMPORT JAVASCRIPT FILES -->
+    <script src="/js/profile-side-nav.js" defer></script>
+    <script src="/js/theme-switcher.js" defer></script>
+
+    <!-- Title of the page -->
+    <title>Profile</title>
+</head>
+
+<body>
+    {{xjs {--render--} {[@navbar]} xjs}}
+
+    <div class="profile-fit-max-content bg-darker">
+        <div class="side-nav">
+            <div class="side-nav-elements">
+                <a class="side-nav-link" id="user-info"><i class="fas fa-user"></i></a>
+                <a class="side-nav-link" id="user-settings"><i class="fa fa-cog"></i></a>
+            </div>
+        </div>
+        <div class="profile-content-container" id="profile-container">
+            <div class="d-flex jc-flex-end">
+                <div class="profile-padding-conatiner">
+                    <div class="template-container profile-menu-height">
+                        <div class="centerContent">
+                            <div class="profile-creds">
+                                <h1 class="fc-eee mb-8 font-bold profile-h1-responsive-margin">Profile</h1>
+                                {{xjs {--find--} {++user++}
+                                <div class="profile-input-row">
+                                    <div class="profile-input-column">
+                                        <label class="fc-eee">Username</label>
+                                        <div class="profile-input-placeholder fc-eee mt-2" style="margin-right: 50px;">
+                                            <p color="fc-eee">{[username]}</p>
+                                        </div>
+                                    </div>
+                                    <div class="profile-input-column">
+                                        <label class="fc-eee">Full Name</label>
+                                        <div class="profile-input-placeholder fc-eee mt-2">
+                                            <p color="fc-eee">{[fullname]}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="profile-input-row mt-8">
+                                    <div class="profile-input-column">
+                                        <label class="fc-eee">Birthday</label>
+                                        <div class="profile-input-placeholder fc-eee mt-2" style="margin-right: 50px;">
+                                            <p color="fc-eee">{[birthday]}</p>
+                                        </div>
+                                    </div>
+                                    <div class="profile-input-column">
+                                        <label class="fc-eee">Mail</label>
+                                        <div class="profile-input-placeholder fc-eee mt-2">
+                                            <p color="fc-eee">{[mail]}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                xjs}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="profile-content-container" id="profile-settings-container" style="display: none;">
+            <div class="d-flex jc-flex-end">
+                <div class="profile-padding-conatiner">
+                    <div class="template-container profile-menu-height">
+                        <div class="template-container profile-menu-height">
+                            <div class="centerContent">
+                                <div class="profile-creds">
+                                    <h1 class="mb-1 fc-eee font-bold profile-h1-responsive-margin">Settings</h1>
+                                    <p class="mb-6 fc-dark-light">This is where you can customize your settings and choose your prefrences</p>
+                                    <div class="settings-container">
+                                        <div class="setting-item">
+                                            <h2 class="font-bold fc-eee m-0" style="font-size: 30px;">Theme</h2>
+                                            <p class="fc-dark-light" style="margin-top: 3px;">Dark/Light</p>
+                                            <label class="switch mt-4 mb-2">
+                                                <input type="checkbox" id="theme-switcher-checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
