@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{xjs{--plaintext--} globalHeader xjs}}
+
+    {{xjs
+        {--IF--} {++userLogged++}
+        {--find--} {++user++}
+            <script src="./../js/hideElementWhenLogged.js" defer="true"></script> 
+            <script>
+                window.location = "/";
+            </script>
+    xjs}}
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/publicStyles.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/nav-bar.css">
+    <link rel="stylesheet" href="../librarys/fontawesome/fontawesome-free-5.15.3-web/css/all.css">
+
+    <title>Login</title>
+</head>
+<body>
+    {{xjs
+        {--IF--} {++userLogged++}
+        {--find--} {++user++}
+            <div class="template-container bg-darker">
+                <div class="centerContent fd-col">
+                    <h1 class="fc-eee fs-50 font-bold text-align-center">Redirecting</h1><br/>
+                    <p class="fc-dark-light fs-14 text-align-center">
+                        Looks like Your already logged in! If you were<br/> 
+                        not redirected please click this <a href="/" class="fc-dark-light">Here</a>
+                    </p>
+                </div>
+            </div>
+    xjs}}
+
+    {{xjs
+        {--render--} {[templates/navbar/nav.html|false|false|false]}
+    xjs}}
+    
+    {{xjs
+        {--IF--} {++userLogged++}
+        {--find--} {++user++}
+            <div class="template-container bg-darker">
+                <div class="centerContent fd-col">
+                    <h1 class="fc-eee fs-50 font-bold text-align-center">Redirecting</h1><br/>
+                    <p class="fc-dark-light fs-14 text-align-center">
+                        Looks like Your already logged in! If you were<br/> 
+                        not redirected please click this <a href="/" class="fc-dark-light">Here</a>
+                    </p>
+                </div>
+            </div>
+    xjs}}
+
+    <div class="template-container" id="loggedInRemoveId">
+        <div class="fill-content bg-darker">
+            <div class="centerContent fd-col">
+                <div class="login-container">
+                    <div class="centerContent fd-row">
+                        <div class="login-image-section-style-animation">
+                            <div class="centerContent">
+                                <div class="login-image-813"></div>
+                            </div>
+                        </div>
+                        <div class="login-inputs-login-style">
+                            <form action="" method="POST" class="login-form-controll">
+                                <div class="centerContentX fd-col">
+                                    <h2 class="mt-4 fc-dark-light">Login</h2>
+                                    <input type="text" id="login-user-name-label" name="username" placeholder="Username" class="mt-8"><br/>
+                                    <input type="password" name="password" placeholder="Password"><br/>
+                                    <input type="submit" class="login-submit-btn" name="login" value="Login">
+                                </div>
+                            </form>
+                            
+                            <div class="alertBox-sticky-container">
+                                {{xjs
+                                    {--each--} {++alert++}
+                                        <div class="alertBox-sticky" onclick="this.style.display = 'none'">
+                                            <div class="text-alert text-align-center alertBox-sticky-text">{[i]}</div>
+                                        </div>
+                                xjs}}
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>    
+    </div>  
+</body>
+</html>

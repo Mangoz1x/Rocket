@@ -1,0 +1,45 @@
+/* Styles */
+.container {
+    width: 100%;
+    height: fit-content;
+    background-color: #111;
+}
+
+.section {
+    width: 100%;
+    height: 100vh;
+}
+
+/* Front cover w call to action */
+
+
+/* Wavy Bottom */
+
+.custom-shape-divider-bottom-1627141589 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1627141589 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 250px;
+}
+
+.custom-shape-divider-bottom-1627141589 .shape-fill {
+    fill: #222;
+}
+
+@media only screen and (max-width: 800px) {
+    .custom-shape-divider-bottom-1627141589 svg {
+        height: 100px;
+    }
+}
+
+/* Section #2 */

@@ -1,0 +1,23 @@
+.animate-text-color {
+    animation: animate-cover-text 4s forwards;
+}
+
+@keyframes animate-cover-text {
+    0% {
+        color: white;
+        margin-top: 200px;
+        opacity: 0;
+    } 20% {
+        color: rgb(40, 210, 202);
+        margin-top: 0;
+        opacity: 1;
+    } 40% {
+        color: rgb(40, 85, 210);
+    } 60% {
+        color: rgb(210, 40, 210);
+    } 80% {
+        color: rgb(210, 80, 40);
+    } 100% {
+        color: rgb(255, 255, 255);
+    }
+}
